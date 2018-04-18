@@ -17,6 +17,8 @@ public class InitData {
     @Autowired
     private EntityManager em;
 
+    /** J'ai juste rajouté le minimum de données pour que mes test soient complets : deux clients un sans facture pour devoir gérer l'export XLSX avec.
+     * Et un autre avec un nom qui contient un ; et deux factures avec deux lignes chacune. */
     public void insertTestData() {
 
     	// Client 1 : 2 facture 2 ligne de facture 2 articles avec des noms aux caractères spéciaux

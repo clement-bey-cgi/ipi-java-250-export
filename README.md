@@ -1,3 +1,8 @@
+#A FAIRE 
+
+	AMELIROER PDF 
+	BIRT
+
 # Export
 
 Ajouter des données de tests (des nouveaux clients ou articles ...)
