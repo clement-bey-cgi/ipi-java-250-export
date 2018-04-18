@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<merde>
+	<client>
+		<nom>Abdoul</nom>
+		<prenom>Momo</prenom>
+	</client>
+	<facture>
+		<ligneDeFacture>
+				<libelle>Steak Hallal</libelle>
+				<quantite>2</quantite>
+				<prix>3</prix>
+		</ligneDeFacture>
+		<ligneDeFacture>
+				<libelle>Couscous</libelle>
+				<quantite>6</quantite>
+				<prix>5</prix>
+		</ligneDeFacture>
+	</facture>
+</merde>

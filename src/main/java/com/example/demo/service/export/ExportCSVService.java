@@ -1,45 +1,45 @@
 package com.example.demo.service.export;
 
-import com.example.demo.dto.ClientDTO;
-import org.springframework.stereotype.Service;
-
-import java.io.IOException;
-import java.io.Writer;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-@Service
+import org.springframework.stereotype.Component;
+
+import com.example.demo.dto.ClientDTO;
+
+@Component 
 public class ExportCSVService {
-
-    public void export(Writer printWriter, List<ClientDTO> clients) throws IOException {
-        ExporterCSV exporter = new ExporterCSV();
-        exporter.addColumnString("Nom", clientDTO -> clientDTO.getNom());
-        exporter.addColumnString("Prenom", ClientDTO::getPrenom);
-        exporter.addColumnInteger("Age", ClientDTO::getAge);
-        exporter.createCSV(printWriter, clients);
-    }
-
-    public void exportOld(Writer printWriter, List<ClientDTO> clients) throws IOException {
-        printWriter.write("Nom;");
-        printWriter.write("Prenom;");
-        printWriter.write("Age;");
-
-        for (ClientDTO client : clients) {
-
-            printWriter.write(replace(client.getNom()));
-            printWriter.write(";");
-            printWriter.write(replace(client.getPrenom()));
-            printWriter.write(";");
-            printWriter.write(client.getAge());
-
-            printWriter.write("\n");
-        }
-    }
-
-    private String replace(String value) {
-        value = value.replace("\"", "\"\"");
-        if (value.contains(";")) {
-            value = "\"" + value + "\"";
-        }
-        return value;
-    }
+	
+	private final String SEPARATOR = ";";
+	
+	private final String NEW_LINE = "\n";
+	
+	private final String CELL = "\"";
+	
+	public void export(PrintWriter pw, List<ClientDTO> clients) {
+		
+		for (ClientDTO c : clients) {
+			pw.write(CELL);
+			pw.write(verifyString(c.getNom()));
+			pw.write(CELL);
+			pw.write(SEPARATOR);
+			pw.write(CELL);
+			pw.write(verifyString(c.getPrenom()));
+			pw.write(CELL);
+			pw.write(SEPARATOR);
+			pw.write(NEW_LINE);
+		}
+	}
+	
+	/** Permet de vérifier la présence de caractère qui empecherait le CSV de se générer correctement.
+	 * @param s la string à vérifier
+	 * @return s une fois corrigé (au besoin)*/
+	public String verifyString(String s) {
+		s.replace("\"", "\"\"");
+		s.replace(";", "\";\"");
+		return s;
+	}
 }

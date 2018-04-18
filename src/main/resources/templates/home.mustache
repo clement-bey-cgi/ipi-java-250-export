@@ -1,11 +1,19 @@
 <html>
 <head>
-<title></title>
+<title>Facture Inc</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
     <hr/>
-    <h1>Clients <a href="/clients/csv">csv</a>-<a>xlsx</a>-<a>json</a>-<a>xml</a>-<a>pdf</a></h1>
+    <h1>Clients</h1>
+    <h2><a href="/clients/csv">Tous les clients au format .csv</a></h2>
+    <h2><a href="/excel">Tous les clients au format .xlsx</a></h2>
     <hr/>
 
     {{>clients}}
@@ -17,7 +25,7 @@
 
     {{#factures}}
 
-        <h2>Facture numéro {{id}} de {{client.nom}} {{client.prenom}} <a href="/factures/{{id}}/pdf">pdf</a></h2>
+        <h2>Factures de {{client.nom}} {{client.prenom}} <a href="/factures/{{id}}/pdf">pdf</a></h2>
         {{>factures}}
     {{/factures}}
 </body>

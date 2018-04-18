@@ -6,9 +6,13 @@ import com.example.demo.service.ClientService;
 import com.example.demo.service.FactureService;
 import com.example.demo.service.export.ExportCSVService;
 import com.example.demo.service.export.ExportPDFITextService;
-import com.example.demo.service.export.ExportXLSXService;
+import com.example.demo.service.export.xlsx.ExcelExportService;
 import com.itextpdf.text.DocumentException;
+
+import javassist.NotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,11 +21,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.List;
 
-/**
- * Controlleur pour réaliser les exports
- */
 @Controller
 @RequestMapping("/")
 public class ExportController {
@@ -36,10 +38,10 @@ public class ExportController {
     private FactureService factureService;
 
     @Autowired
-    private ExportXLSXService exportXLSXService;
-
-    @Autowired
     private ExportPDFITextService exportPDFITextService;
+    
+    @Autowired
+    private ExcelExportService excelExportService;
 
     @GetMapping("/clients/csv")
     public void clientsCSV(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -49,28 +51,40 @@ public class ExportController {
         exportCSVService.export(response.getWriter(), clients);
     }
 
-    @GetMapping("/clients/xlsx")
-    public void clientsXLSX(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/vnd.ms-excel");
-        response.setHeader("Content-Disposition", "attachment; filename=\"clients.xlsx\"");
-        List<ClientDTO> clients = clientService.findAllClients();
-        exportXLSXService.export(response.getOutputStream(), clients);
-    }
-
-    @GetMapping("/clients/{id}/factures/xlsx")
-    public void facturesDUnClient(@PathVariable("id") Long clientId, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("application/vnd.ms-excel");
-        response.setHeader("Content-Disposition", "attachment; filename=\"factures client " + clientId + ".xlsx\"");
-        // TODO
-    }
-
-
     @GetMapping("/factures/{id}/pdf")
-    public void facturePDF(@PathVariable("id") Long factureId, HttpServletRequest request, HttpServletResponse response) throws IOException, DocumentException {
+    public void facturePDF(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) throws IOException, DocumentException {
         response.setContentType("application/pdf");
-        response.setHeader("Content-Disposition", "attachment; filename=\"facture " + factureId + ".pdf\"");
-        FactureDTO facture = factureService.findById(factureId);
+        response.setHeader("Content-Disposition", "attachment; filename=\"Facture " + id + ".pdf\"");
+        FactureDTO facture = factureService.findById(id);
         exportPDFITextService.export(response.getOutputStream(), facture);
     }
-
+    
+    @GetMapping("/excel")
+    public void excelClients(HttpServletRequest request, HttpServletResponse response, OutputStream os) {
+        response.setContentType("application/xlsx");
+        response.setHeader("Content-Disposition", "attachment; filename=\"Clients.xlsx\"");
+    	try {
+			excelExportService.export(os, clientService.findAllClients());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+    }
+    
+    @GetMapping("/{id}/excel")
+    public void clientFactureToExcel(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<FactureDTO> factures = factureService.findByClientId(id);
+        if (factures != null && factures.size() != 0) {
+            response.setContentType("application/xlsx");
+            response.setHeader("Content-Disposition", "attachment; filename=\"Factures.xlsx\"");
+        	try {
+    			excelExportService.exportThisClientFactures(response.getOutputStream(), factures);
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		}
+        }
+        else {
+        	// REDIRECTION SUR LA PAGE D ACCUEIL SI COLLECTION VIDE OU NULLE
+        	response.sendRedirect("localhost:8080");
+        }
+    }
 }
