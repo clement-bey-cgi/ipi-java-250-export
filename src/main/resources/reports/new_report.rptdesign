@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.6.0.v201606072122</property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">120</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.enablement.oda.xml" name="Data Source" id="5">
+            <property name="FILELIST">src/main/resources/reports/file.xml</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.enablement.oda.xml.dataSet" name="client" id="473">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">id</property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">nom</property>
+                    <text-property name="heading">nom</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">prenom</property>
+                    <text-property name="heading">prenom</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">nom</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">prenom</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">nom</property>
+                    <property name="nativeName">nom</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">prenom</property>
+                    <property name="nativeName">prenom</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[table0#-TNAME-#table0#:#[/data/client]#:#{id;STRING;/id},{nom;STRING;/nom},{prenom;STRING;/prenom}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>id</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>nom</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>nom</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>prenom</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>prenom</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>MAX_ROW</name>
+                    <value>20</value>
+                </ex-property>
+                <ex-property>
+                    <name>XML_FILE</name>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.enablement.oda.xml.dataSet" name="facture" id="475">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">id</property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">idclient</property>
+                    <text-property name="heading">idclient</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">idclient</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">idclient</property>
+                    <property name="nativeName">idclient</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[table0#-TNAME-#table0#:#[/data/facture]#:#{id;STRING;/id},{idclient;STRING;/idclient}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>id</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>id</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>idclient</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>idclient</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>MAX_ROW</name>
+                    <value>-1</value>
+                </ex-property>
+                <ex-property>
+                    <name>XML_FILE</name>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+        <oda-data-set extensionID="org.eclipse.datatools.enablement.oda.xml.dataSet" name="ligne_facture" id="546">
+            <list-property name="computedColumns">
+                <structure>
+                    <property name="name">total ligne</property>
+                    <expression name="expression">row["quantite"]*row["prix"]</expression>
+                    <property name="dataType">blob</property>
+                </structure>
+            </list-property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">idfacture</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">idfacture</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">libelle</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">libelle</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">quantite</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">quantite</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">prix</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">prix</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">idfacture</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">libelle</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">quantite</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">prix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">total ligne</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">idfacture</property>
+                    <property name="nativeName">idfacture</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">id</property>
+                    <property name="nativeName">id</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">libelle</property>
+                    <property name="nativeName">libelle</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">quantite</property>
+                    <property name="nativeName">quantite</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">prix</property>
+                    <property name="nativeName">prix</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[table0#-TNAME-#table0#:#[/data/ligneDeFacture]#:#{idfacture;STRING;/idfacture},{id;STRING;/id},{libelle;STRING;/libelle},{quantite;STRING;/quantite},{prix;STRING;/prix}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>idfacture</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>idfacture</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>id</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>id</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>libelle</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>libelle</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>quantite</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>quantite</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>prix</design:name>
+              <design:position>5</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>prix</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>MAX_ROW</name>
+                    <value>-1</value>
+                </ex-property>
+                <ex-property>
+                    <name>XML_FILE</name>
+                </ex-property>
+            </list-property>
+        </oda-data-set>
+        <joint-data-set name="MontantTotalFacture" id="547">
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">ligne_facture::idfacture</property>
+                    <property name="alias">idfacture</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ligne_facture::idfacture</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ligne_facture::prix</property>
+                    <property name="alias">prix</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ligne_facture::prix</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ligne_facture::libelle</property>
+                    <property name="alias">libelle</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ligne_facture::libelle</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ligne_facture::id</property>
+                    <property name="alias">ligne_facture::id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ligne_facture::id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ligne_facture::total ligne</property>
+                    <property name="alias">total ligne</property>
+                    <property name="analysis">attribute</property>
+                    <text-property name="displayName">ligne_facture::total ligne</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">facture::id</property>
+                    <property name="alias">facture::id</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">facture::id</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">facture::idclient</property>
+                    <property name="alias">idclient</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">facture::idclient</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">ligne_facture::quantite</property>
+                    <property name="alias">quantite</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="displayName">ligne_facture::quantite</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">idfacture</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ligne_facture::id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">libelle</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">quantite</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">prix</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">total ligne</property>
+                        <property name="dataType">blob</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">facture::id</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">idclient</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <simple-property-list name="dataSets">
+                <value>ligne_facture</value>
+                <value>facture</value>
+            </simple-property-list>
+            <list-property name="joinConditions">
+                <structure>
+                    <property name="joinType">full-out</property>
+                    <property name="joinOperator">eq</property>
+                    <property name="leftDataSet">ligne_facture</property>
+                    <property name="rightDataSet">facture</property>
+                    <expression name="leftExpression">dataSetRow["idfacture"]</expression>
+                    <expression name="rightExpression">dataSetRow["id"]</expression>
+                </structure>
+            </list-property>
+        </joint-data-set>
+    </data-sets>
+    <styles>
+        <style name="NewStyle" id="157">
+            <property name="textAlign">center</property>
+        </style>
+        <style name="NewStyle1" id="158">
+            <property name="fontSize">15pt</property>
+            <property name="color">#FF8000</property>
+        </style>
+        <style name="NewStyle2" id="199">
+            <property name="fontSize">15pt</property>
+            <property name="color">#008000</property>
+        </style>
+        <style name="NewStyle3" id="464">
+            <property name="fontSize">13pt</property>
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderTopStyle">solid</property>
+        </style>
+        <style name="NewStyle4" id="465">
+            <property name="borderBottomStyle">solid</property>
+            <property name="borderBottomWidth">thin</property>
+            <property name="borderLeftStyle">solid</property>
+            <property name="borderLeftWidth">thin</property>
+            <property name="borderRightStyle">solid</property>
+            <property name="borderRightWidth">thin</property>
+            <property name="borderTopStyle">solid</property>
+            <property name="borderTopWidth">thin</property>
+            <property name="textAlign">center</property>
+        </style>
+        <style name="TITRE" id="466">
+            <property name="fontSize">20pt</property>
+            <property name="textAlign">center</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2"/>
+    </page-setup>
+    <body>
+        <text id="494">
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[LISTE DE TOUS LES CLIENTS]]></text-property>
+        </text>
+        <table id="495">
+            <property name="dataSet">client</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">nom</property>
+                    <text-property name="displayName">nom</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["nom"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">prenom</property>
+                    <text-property name="displayName">prenom</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prenom"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="509"/>
+            <column id="510"/>
+            <header>
+                <row id="496">
+                    <cell id="497">
+                        <label id="498">
+                            <text-property name="text">nom</text-property>
+                        </label>
+                    </cell>
+                    <cell id="499">
+                        <label id="500">
+                            <text-property name="text">prenom</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="501">
+                    <cell id="502">
+                        <data id="503">
+                            <property name="resultSetColumn">nom</property>
+                        </data>
+                    </cell>
+                    <cell id="504">
+                        <data id="505">
+                            <property name="resultSetColumn">prenom</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="506">
+                    <cell id="507"/>
+                    <cell id="508"/>
+                </row>
+            </footer>
+        </table>
+        <text id="511"/>
+        <table id="512">
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">idfacture</property>
+                    <text-property name="displayName">idfacture</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["idfacture"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">libelle</property>
+                    <text-property name="displayName">libelle</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["libelle"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">quantite</property>
+                    <text-property name="displayName">quantite</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["quantite"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">prix</property>
+                    <text-property name="displayName">prix</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["prix"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">MONTANT TOTAL</property>
+                    <text-property name="displayName">MONTANT TOTAL</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["MONTANT TOTAL"]</expression>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
+            <column id="541"/>
+            <column id="542"/>
+            <column id="543"/>
+            <column id="544"/>
+            <column id="545"/>
+            <header>
+                <row id="513">
+                    <cell id="514">
+                        <label id="515">
+                            <text-property name="text">idfacture</text-property>
+                        </label>
+                    </cell>
+                    <cell id="516">
+                        <label id="517">
+                            <text-property name="text">libelle</text-property>
+                        </label>
+                    </cell>
+                    <cell id="518">
+                        <label id="519">
+                            <text-property name="text">quantite</text-property>
+                        </label>
+                    </cell>
+                    <cell id="520">
+                        <label id="521">
+                            <text-property name="text">prix</text-property>
+                        </label>
+                    </cell>
+                    <cell id="522">
+                        <label id="523">
+                            <text-property name="text">MONTANT TOTAL</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="524">
+                    <cell id="525">
+                        <data id="526">
+                            <property name="resultSetColumn">idfacture</property>
+                        </data>
+                    </cell>
+                    <cell id="527">
+                        <data id="528">
+                            <property name="resultSetColumn">libelle</property>
+                        </data>
+                    </cell>
+                    <cell id="529">
+                        <data id="530">
+                            <property name="resultSetColumn">quantite</property>
+                        </data>
+                    </cell>
+                    <cell id="531">
+                        <data id="532">
+                            <property name="resultSetColumn">prix</property>
+                        </data>
+                    </cell>
+                    <cell id="533">
+                        <data id="534">
+                            <property name="resultSetColumn">MONTANT TOTAL</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="535">
+                    <cell id="536"/>
+                    <cell id="537"/>
+                    <cell id="538"/>
+                    <cell id="539"/>
+                    <cell id="540"/>
+                </row>
+            </footer>
+        </table>
+        <text id="548">
+            <property name="contentType">auto</property>
+            <text-property name="content"><![CDATA[MONTANT TOTAL DES FACTURES]]></text-property>
+        </text>
+    </body>
+</report>

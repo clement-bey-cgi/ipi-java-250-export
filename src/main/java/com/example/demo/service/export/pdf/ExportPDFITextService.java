@@ -49,8 +49,8 @@ public class ExportPDFITextService {
 		// PAGE D ENTETE DATEE
 		document.newPage();
 		LocalDate now = LocalDate.now();
-		chunk = new Chunk("Facture non réglée de Mr/Mme " + facture.getClient().getNom() + " "
-		+ facture.getClient().getPrenom() + " ! \n"+ now.getDayOfMonth() + "/" + now.getMonthValue() + "/" + now.getYear(), FONT_HEADER);
+		chunk = new Chunk("Facture non réglée de Mr/Mme\n" + facture.getClient().getNom() + " "
+		+ facture.getClient().getPrenom() + "\n"+ now.getDayOfMonth() + "/" + now.getMonthValue() + "/" + now.getYear(), FONT_HEADER);
 		paragraphe = new Paragraph(chunk);
 		paragraphe.setAlignment(Paragraph.ALIGN_CENTER);
 		document.add(paragraphe);
