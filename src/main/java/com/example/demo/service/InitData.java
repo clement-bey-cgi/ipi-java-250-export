@@ -24,8 +24,8 @@ public class InitData {
     	// Client 1 : 2 facture 2 ligne de facture 2 articles avec des noms aux caractères spéciaux
     	// Pour satisfaire tous mes test manuels
         Client client  = new Client();
-        client.setNom("P;ETRILLO");
-        client.setPrenom("Alexandre");
+        client.setNom("GUST;AVE");
+        client.setPrenom("TARTAMPION");
         em.persist(client);
 
         // ARTICLES FACTURE 1
@@ -42,12 +42,12 @@ public class InitData {
         // ARTICLES FACTURE 2
         Article article3 = new Article();
         article3.setLibelle("Du SWAG");
-        article3.setPrix(79.90);
+        article3.setPrix(36.2);
         em.persist(article3);
         
         Article article4 = new Article();
         article4.setLibelle("Des chocolat");
-        article4.setPrix(35.5);
+        article4.setPrix(22.85);
         em.persist(article4);
 
         // FACTURES

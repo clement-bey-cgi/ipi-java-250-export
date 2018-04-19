@@ -1,43 +1,15 @@
-# Export
+# REMARQUE DE RENDU 
 
-Ajouter des données de tests (des nouveaux clients ou articles ...)
-Ajouter de nouvelles colonnes (age, adresse, marque, score, ...)
+## Un BirtPDFService à la mer !
 
-## CSV
-Un fichier CSV est un fichier texte "à plat" chaque ligne correspond à une ligne du tableau, chaque colonne est séparée par des ";"
-Le contenu d'une cellule peut être entourée de double quotes
-* Exporter la liste des clients au format CSV (colonnes: nom, prénom)
-* Bonus ajouter le caractère ; dans le nom d'un des client (ex PETR;ILLO) et corriger le code pour faire en sorte que le fichier CSV reste correct.
+Le modèle que vous nous avez proposé pour le PDFBirtExportService ne fonctionnait pas chez moi, le fichier se générait et était reçu en front,
+mais impossible de l'ouvrir, il était endommagé. Meme avec l'exemple que vous aviez laissé dans le repo. Le code de l'erreur était " Extension registry provider is already set " ET "error.CannotStartupOSGIPlatform". Les sujet que j'ai put trouvé sur le net à ce propos dataient de 2009. 
+J'ai essayé de me familiariser avec les reports pour se faire (il est fonctionnel en local ave votre XML de test). 
 
-## XLSX
-```
-Workbook workbook = new XSSFWorkbook();
-Sheet sheet = workbook.createSheet("Clients");
-Row headerRow = sheet.createRow(0);
-Cell cellPrenom = headerRow.createCell(0);
-cellPrenom.setCellValue("Prénom");
-workbook.write(fileOutputStream);
-workbook.close();
-```
-* Créer un export XLSX de tous les clients (colonnes: nom, prénom)
-* Créer un export XLSX pour un client, et créer un onglet par facture
-    chaque onglet contiendra le détail de la facture (colonnes : désignation, quantité, prixUnitaire, prixLigne) et rajouter le prix total de la facture en bas (utilise un colspan)
+## Des bonnes nouvelles...
 
-## PDF (iText)
-* Créer le PDF d'une facture entete : Nom prénom du client, tableau contenant le détail de la facture, prix total de la facture en dessous
-Astuce, il faut importer les classe com.itextpdf.* et non com.lowagi.*
-AIDE : https://developers.itextpdf.com/examples/itext-action-second-edition/chapter-1
+J'ai quand même préparé la méthode pour créer le fichier XML avec le FACTURE DTO (birtPDFService), et essayé de compenser l'échec du birt en me concentrant sur le xlsxService et le pdfService.
 
-## CSV amélioré (BONUS a faire après)
-Créer un objet permettant d'améliorer l'export.
-* Créer une classe permettant de réaliser des exports en rassemblant la définition de l'entête et du contenu
+## PS 
 
-## PDF (birt) (BONUS on verra ensemble)
-Birt est un outil de templating pour générer des PDF (et autres)
-Télécharer birt all in one  http://download.eclipse.org/birt/downloads/
-créer un nouveau report
-utiliser une datasource XML
-* Créer un service de génération de PDF via BIRT : le service utilise un template birt et founit un dataset xml pour créer le PDF.
-
-PS :
-Ajouter des bordures, des images, des polices, des couleurs, du gras souligné etc...
+Mes excuses par avance pour le pdf je l'ai fini tard dans la nuit et j'ai légèrement craqué.
