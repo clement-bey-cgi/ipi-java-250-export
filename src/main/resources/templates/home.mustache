@@ -25,8 +25,9 @@
 
     {{#factures}}
 
-        <h2>Factures de {{client.nom}} {{client.prenom}} <a href="/factures/{{id}}/pdf">pdf</a></h2>
-        {{>factures}}
+        <h2>Factures de {{client.nom}} {{client.prenom}} </h2>
+        	<a href="/factures/{{id}}/pdf">Telecharger le PDF</a>
+        	{{>factures}}
     {{/factures}}
 </body>
 </html>
